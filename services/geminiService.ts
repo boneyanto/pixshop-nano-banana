@@ -76,7 +76,7 @@ export const generateEditedImage = async (
     hotspot: { x: number, y: number }
 ): Promise<string> => {
     console.log('Starting generative edit at:', hotspot);
-    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY! });
+    const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_API_KEY as string });
     
     const originalImagePart = await fileToPart(originalImage);
     const prompt = `You are an expert photo editor AI. Your task is to perform a natural, localized edit on the provided image based on the user's request.
